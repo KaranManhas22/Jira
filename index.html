@@ -1,189 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Karan Singh Manhas - Portfolio</title>
-    <!-- Import Tailwind CSS Global CDN -->
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #10b981;
-            --dark: #1e1e2f;
-            --light: #f8fafc;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--light) 0%, var(--dark) 100%);
-            color: var(--dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .portfolio-container {
-            max-width: 1200px;
-            width: 100%;
-            background: rgba(30, 36, 45, 0.95);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            padding: 3rem 2rem;
-            animation: fadeIn 1s ease forwards;
-        }
-        .hero-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .hero-header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: var(--secondary);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .subtitle {
-            font-size: 1.5rem;
-            color: var(--light);
-            opacity: 0.9;
-        }
-        .section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-        .profile-card {
-            flex: 1 1 45%;
-            background: var(--light);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            overflow: hidden;
-        }
-        .profile-card:hover {
-            transform: translateY(-10px);
-        }
-        .profile-image {
-            width: 100%;
-            height: 40vh;
-            object-fit: cover;
-            border-radius: 15px 15px 0 0;
-        }
-        .profile-content {
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-            border-radius: 0 0 15px 15px;
-        }
-        .profile-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        .profile-content p {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        .skill-tag {
-            background: #16a085;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-        .skill-tag:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-        .contact-section {
-            background: var(--primary);
-            padding: 3rem;
-            color: white;
-            text-align: center;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        .contact-section h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-        .contact-options {
-            margin-top: 1.5rem;
-        }
-        .social-links a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.1rem;
-            transition: transform 0.3s;
-        }
-        .social-links a:hover {
-            transform: rotate(5deg) scale(1.1);
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-height, initial-scale=1.0">
+    <title>Karan Singh Manhas Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="portfolio-container">
-        <div class="hero-header">
-            <h1>Karan Singh Manhas</h1>
-            <p class="subtitle">Full Stack Developer | UI/UX Designer | JavaScript Enthusiast</p>
-        </div>
-        <div class="section">
-            <div class="profile-card">
-                <img src="https://via.placeholder.com/600x400" alt="Karan Singh Manhas Profile" class="profile-image" />
-                <div class="profile-content">
-                    <h2>About Me</h2>
-                    <p>Passionate Full Stack Developer with expertise in modern JavaScript frameworks, responsive UI/UX design, and cloud infrastructure. Specializing in creating scalable web applications with a focus on user experience and performance optimization.</p>
-                </div>
+<body class="bg-gradient-to-r from-indigo-500 to-purple-600 h-screen flex flex-col justify-center items-center text-center">
+    <div class="container 3d-box shadow-lg transition-opacity animate-pulse @keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }" style="animation: spin 5s linear infinite; animation-delay: 1s;">
+        <div class="flex items-center justify-center h-screen">
+</div>
+        <section class="flex flex-col items-center justify-center max-w-4xl mx-auto">
+            <img src="https://source.unsplash.com/random/300x200/?professional" alt="Karan Singh Manhas" class="rounded-lg shadow-lg max-w-2xl mb-10 object-cover">
+            <h1 class="text-4xl font-bold text-white mb-8">Karan Singh Manhas</h1>
+            <p class="text-white text-lg mb-10 pb-20 border-b-4 border-gradient from-purple-600 to-indigo-500">Personal Portfolio Website</p>
+            <div class="flex flex-wrap gap-4 mb-10">
+                <a href="#" class="p-2 rounded-lg bg-gradient-to-r from-indigo-500 to-orange-600 text-white hover:shadow-lg">Web Design</a>
+                <a href="#" class="p-2 rounded-lg bg-gradient-to-r from-red-500 to-pink-600 text-white hover:shadow-lg">Development</a>
+                <a href="#" class="p-2 rounded-lg bg-gradient-to-r from-green-500 to-teal-600 text-white hover:shadow-lg">Marketing</a>
             </div>
-            <div class="profile-card">
-                <img src="https://via.placeholder.com/600x400/2563eb/ffffff" alt="Project Creations" class="profile-image" />
-                <div class="profile-content">
-                    <h2>Projects</h2>
-                    <p>Explore my portfolio of modern web solutions, including responsive design interfaces, data visualization dashboards, and production-grade serverless applications.</p>
-                </div>
+            <div class="flex justify-center">
+                <a href="#" target="_blank" class="p-3 rounded-lg text-white hover:shadow-lg mx-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="animate-pulse">
+                        <path d="M12 0L2 12l10 12l1 1 1-11L13 2z"></path>
+                    </svg>
+                    LinkedIn</a>
+                <a href="#" target="_blank" class="p-3 rounded-lg text-white hover:shadow-lg mx-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="animate-pulse">
+                        <path d="M4 6h16M4 16h16m-7 0h7"></path>
+                    </svg>
+                    Email</a>
             </div>
-        </div>
-        <div class="section">
-            <div class="skills-grid">
-                <div class="skill-tag">HTML5</div>
-                <div class="skill-tag">CSS3</div>
-                <div class="skill-tag">JavaScript</div>
-                <div class="skill-tag">React.js</div>
-                <div class="skill-tag">Node.js</div>
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">Docker</div>
-                <div class="skill-tag">AWS</div>
-                <div class="skill-tag">Tailwind CSS</div>
-            </div>
-        </div>
-        <div class="contact-section">
-            <h3>Contact Me</h3>
-            <div class="contact-options">
-                <a href="mailto:karanmanhas@example.com" class="social-links">Email</a>
-                <a href="https://github.com/yourprofile" target="_blank" class="social-links">GitHub</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-links">LinkedIn</a>
-            </div>
-        </div>
+            <footer class="mt-10 color-white text-sm">
+                <p>&copy;</p>
+            </footer>
+        </section>
     </div>
 </body>
 </html>
