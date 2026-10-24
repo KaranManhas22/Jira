@@ -3,424 +3,179 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Premium Developer Portfolio Website for Karan Singh Manhas - Cloud & DevOps Engineer, Android Developer" />
-    <meta name="author" content="Karan Singh Manhas" />
-    <title>Karan Singh Manhas | Cloud & DevOps Engineer</title>
-    <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/tailwindcss@2.2.20/dist/tailwind.min.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Karan Singh Manhas—Cloud & DevOps Engineer | Android Developer</title>
     <style>
         :root {
-            --primary: #0f0c29;
-            --secondary: #11183a;
-            --accent: #07fffb;
-            --dark: #1e1e2f;
-            --light: #f8f9fa;
-            --text-light: #f3f4f6;
-            --card-bg: #25283a;
-            --card-border: rgba(255, 255, 255, 0.1);
-            --transition-speed: 0.3s;
+            --primary: #3B82F6;
+            --secondary: #FBBF24;
+            --dark: #0F0F14;
+            --light: #F9FAFB;
+            --accent: #8B5CF6;
+            --font-semibold: 600;
         }
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-light);
-            background: var(--primary);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: var(--primary);
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-        }
-        header h1 {
-            font-size: 1.5rem;
-            color: var(--accent);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                           "Ubuntu", "Fira Sans", "Apple Color Emoji", "Segoe UI Emoji",
+                           "Segoe UI Symbol", "Twitter Color Emoji", "Apple Color Emoji", "Segoe UI Emoji",
+                           "Segoe UI Symbol", sans-serif;
+            }
         }
         .hero {
-            background: linear-gradient(45deg, #0f0c29, #11183a);
-            padding: 8rem 2rem;
-            position: relative;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
+        .cta-hero {
+            background: rgba(59, 130, 246, 0.8);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 1rem;
+            transition: background 0.3s ease;
+        }
+        .cta-hero:hover {
+            background: #2563EB;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card__img {
             width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1507347326440-47ae32d89730?ixlib=rb-1.2.1&w=864h1000&q=80') no-repeat center center/cover;
-            opacity: 0.3;
-            z-index: -1;
         }
-        .hero h2, .hero p {
-            position: relative;
-            z-index: 1;
+        .card__content {
+            padding: 2rem;
         }
-        .skills-grid {
+        .card__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .card__description {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+        .skills {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            padding: 4rem 2rem;
+            margin-top: 4rem;
         }
         .skill-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: all var(--transition-speed) ease;
+            border: 2px solid #3B82F6;
+            border-radius: 12px;
         }
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 4rem 2rem;
-        }
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 2rem;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all var(--transition-speed) ease;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-        .project-tag {
-            background: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            color: var(--card-bg);
-            font-size: 0.8rem;
-            margin: 1rem 0 1rem 1rem;
-        }
-        footer {
-            background: var(--secondary);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 600px;
-            margin: 0 auto;
-            gap: 1rem;
-        }
-        .form-input, .form-textarea {
-            padding: 1rem;
-            border-radius: 10px;
-            border: none;
-            background: var(--card-bg);
-            color: var(--text-light);
-        }
-        .form-button {
-            background: var(--accent);
-            color: var(--card-bg);
-            padding: 0.8rem;
-            border: none;
-            border-radius: 10px;
+        .toggle-theme {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.1rem;
+            background: #2563EB;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
-        .form-button:hover {
-            transform: scale(1.05);
-        }
-        .dark-light-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            z-index: 1000;
-        }
-        .dark-light-toggle .dark-icon {
-            display: none;
-        }
-        .dark-light-toggle .light-icon {
-            display: inline-block;
-        }
-        body.dark-mode {
-            --primary: #0f0c29;
-            --secondary: #11183a;
-            --accent: #07fffb;
-            --dark: #1e1e2f;
-            --light: #f8f9fa;
-            --text-light: #f3f4f6;
-            --card-bg: #25283a;
-            --card-border: rgba(255, 255, 255, 0.1);
-        }
-        .dark-light-toggle .dark-icon.sunny,
-        .dark-light-toggle .light-icon.moon {
-            display: none;
-        }
-        body.dark-mode .dark-icon.sunny {
-            display: inline-block;
-        }
-        body.dark-mode .light-icon.moon {
-            display: inline-block;
-        }
+        .dark { body { background: var(--dark); } }
     </style>
 </head>
-<body>
-    <header>
+<body class="dark">
+    <div class="hero">
         <h1>Karan Singh Manhas</h1>
-        <nav>
-            <ul class="flex space-x-4">
-                <li><a href="#about" class="hover:text-white">About</a></li>
-                <li><a href="#projects" class="hover:text-white">Projects</a></li>
-                <li><a href="#contact" class="hover:text-white">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class="hero">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-white leading-tight mt-4 mb-3">Cloud & DevOps Engineer | Android Developer</h2>
-            <p class="text-2xl text-white leading-normal mb-8">
-                Building scalable applications, automating deployments, and creating modern digital solutions through innovative technologies and workflows.
-            </p>
-            <div class="flex flex-col space-y-3">
-                <a href="#projects" class="bg-[#07fffb] text-[#1e1e2f] font-semibold py-2 px-4 border border-[#1e1e2f] rounded shadow-md hover:shadow-lg rounded-lg focus:outline-none focus:ring-0 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-[#07fffb]">Explore My Work</a>
-                <a href="#contact" class="bg-[#07fffb] text-[#1e1e2f] font-semibold py-2 px-4 border border-[#1e1e2f] rounded shadow-md hover:shadow-lg rounded-lg focus:outline-none focus:ring-0 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-[#07fffb]">Contact Me</a>
+        <p>Cloud & DevOps Engineer | Android Developer</p>
+        <button class="cta-hero">Explore My Work</button>
+        <button class="cta-hero">Contact Me</button>
+        <div class="theme-toggle">
+            <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark Mode</button>
+        </div>
+    </div>
+
+    <section class="skills">
+        <div class="skill-card">
+            <h2>Programming</h2>
+            <div>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M22 2h-20v22h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <p>Java, Python, C, C++, Kotlin, JavaScript</p>
             </div>
         </div>
-        <div class="fixed bottom-3 right-10–2rem p-4 bg-white border border-[#07fffb] rounded shadow-md z-20">
-            <a href="https://github.com/username" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/username" target="_blank"><i class="fab fa-linkedin" style="color: #0077B5"></i></a>
-            <a href="mailto:username@example.com"><i class="fas fa-envelope"></i></a>
-        </div>
-    </section>
-    <section id="about" class="py-16 bg-darker">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">About Me</h2>
-            <p class="text-lg text-white mb-8 mb-sm-10 mb-lg-12">
-                Computer Science Engineering graduate with extensive experience in Android Development (Kotlin, Android Studio), Cloud Computing (AWS, Azure), DevOps (CI/CD Pipelines, Docker/Kubernetes), and Full-Stack Development (React, Node.js, REST APIs). Passionate about automation, scalability, and solving complex technical problems through clean, efficient code.
-            </p>
-            <div class="max-w-xs mb-8 mb-sm-10 mb-lg-12">
-                <div class="mb-4 mb-sm-6 mb-lg-8 inline-block"><i class="fas fa-code text-2xl text-white mr-3"></i>
-                    <p class="text-white-lg">
-                        <strong>Projects Completed:</strong> Configurable dynamic count
-                    </p></div>
-                <div class="mb-4 mb-sm-6 mb-lg-8 inline-block"><i class="fas fa-graduation-cap text-2xl text-white mr-3"></i>
-                    <p class="text-white-lg">
-                        <strong>Technologies Learned:</strong> Configurable dynamic list
-                    </p></div>
-                <div class="mb-4 mb-sm-6 mb-lg-8 inline-block"><i class="fas fa-trophy text-2xl text-white mr-3"></i>
-                    <p class="text-white-lg">
-                        <strong>Certifications Earned:</strong> Configurable dynamic list
-                    </p></div>
+        <div class="skill-card">
+            <h2>Frameworks</h2>
+            <div>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M17 10l3-3m0 0l-3-3m0 0l-3 3m5 7a1 1 0 11-2 0v1h1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <p>React, Angular, Vite, Express.js, Flask, Firebase</p>
             </div>
         </div>
-    </section>
-    <section id="projects" class="py-16 bg-darker">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">Featured Projects</h2>
-            <div class="project-grid grid-cols-sm-2 grid-cols-lg-3 gap-6">
-                <div class="project-card border-[#07fffb]">
-                    <h3 class="text-xl font-medium text-white mb-2">Market Minder</h3>
-                    <p class="text-white">
-                        Android inventory tracking application with real-time bill generation.
-                    </p>
-                    <div class="mt-3 flex space-x-2">
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Kotlin</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Android Studio</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">MySQL</span>
-                    </div>
-                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
-                </div>
-                <div class="project-card border-[#07fffb]">
-                    <h3 class="text-xl font-medium text-white mb-2">Medicine Recommender</h3>
-                    <p class="text-white">
-                        ML-powered web application for medicine suggestions based on symptoms.
-                    </p>
-                    <div class="mt-3 flex space-x-2">
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Python</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Flask</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Scikit-learn</span>
-                    </div>
-                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
-                </div>
-                <div class="project-card border-[#07fffb]">
-                    <h3 class="text-xl font-medium text-white mb-2">DevOps Pipeline</h3>
-                    <p class="text-white">
-                        CI/CD automation system with Docker containers and Azure deployment.
-                    </p>
-                    <div class="mt-3 flex space-x-2">
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Docker</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Kubernetes</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">GitHub Actions</span>
-                    </div>
-                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
-                </div>
-                <div class="project-card border-[#07fffb]">
-                    <h3 class="text-xl font-medium text-white mb-2">Voice Assistant</h3>
-                    <p class="text-white">
-                        Android voice integration demo with custom assistant features.
-                    </p>
-                    <div class="mt-3 flex space-x-2">
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Kotlin</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Python</span>
-                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Firebase</span>
-                    </div>
-                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
-                </div>
+        <div class="skill-card">
+            <h2>Cloud</h2>
+            <div>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M19 2h-18v4h18v-4zm0 4h-20v4h20v-4zm0 2l4 4h-8l-4-4h8zm-4-3v2c-5.93 0-10 4.07-10 10v10c0 5.93 4.07 10 10 10h8l-4 4h-4l-4-4h8zm4 9h-4l-4-4h8a3 3 0 100-6h-4v12a3 3 0 006 6zm0-3h6c2.21 0 4-1.79 4-4s-1.79-4-4-4h-6c-2.21 0-4 1.79-4 4s1.79 4 4 4h6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <p>AWS, Azure, Docker, Kubernetes, Jenkins, Ansible</p>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h2>Mobile Dev</h2>
+            <div>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M19 4h-4v12h4v-12zM5 18h4v-12h-4v12z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <p>Android Studio, Kotlin, XML, Firebase</p>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h2>Databases</h2>
+            <div>
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 2L2 7c0 3.87 3 7 7 7h14c3.87 0 7-3 7-7V2zm0 9c1.52 0 3 1.21 3 3s-1.48 3-3 3h-1V3.17C12 2.26 11.06 1 10 1s-1.94 1.25 0 1.41H7c3 0 6 2 6 5h0v9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </svg>
+                <p>MySQL, MongoDB, Redis, Firebase Firestore</p>
             </div>
         </div>
     </section>
-    <section id="skills" class="py-16 bg-darker">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3 class="text-xl font-medium text-white mb-4">Programming</h3>
-                    <ul>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>C/C++</li>
-                        <li>Kotlin</li>
-                        <li>JavaScript</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3 class="text-xl font-medium text-white mb-4">Frontend</h3>
-                    <ul>
-                        <li>HTML/CSS</li>
-                        <li>React</li>
-                        <li>Angular</li>
-                        <li>Vite.js</li>
-                        <li>Tailwind CSS</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3 class="text-xl font-medium text-white mb-4">Backend</h3>
-                    <ul>
-                        <li>Node.js</li>
-                        <li>Express.js</li>
-                        <li>Flask</li>
-                        <li>REST APIs</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3 class="text-xl font-medium text-white mb-4">Mobile Dev</h3>
-                    <ul>
-                        <li>Android Studio</li>
-                        <li>Kotlin</li>
-                        <li>XML</li>
-                        <li>Firebase</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3 class="text-xl font-medium text-white mb-4">Cloud & DevOps</h3>
-                    <ul>
-                        <li>AWS</li>
-                        <li>Microsoft Azure</li>
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Jenkins</li>
-                        <li>Terraform</li>
-                        <li>Ansible</li>
-                        <li>Helm</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3 class="text-xl font-medium text-white mb-4">Monitoring</h3>
-                    <ul>
-                        <li>Prometheus</li>
-                        <li>Grafana</li>
-                        <li>Loki</li>
-                        <li>Nginx</li>
-                        <li>Git</li>
-                        <li>Linux</li>
-                        <li>n8n</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3 class="text-xl font-medium text-white mb-4">Databases</h3>
-                    <ul>
-                        <li>MySQL</li>
-                        <li>MongoDB</li>
-                        <li>Firebase Firestore</li>
-                        <li>Room Database</li>
-                    </ul>
-                </div>
-            </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <h3>Get in touch</h3>
+            <form action="" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
-    <section id="contact" class="py-16 bg-darker">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">Contact</h2>
-            <div class="max-w-sm mx-auto mb-8">
-                <form class="contact-form space-y-4">
-                    <input type="text" placeholder="Full Name" class="form-input w-full" required>
-                    <input type="email" placeholder="Email Address" class="form-input w-full" required>
-                    <textarea rows="5" placeholder="Your Message" class="form-textarea w-full"></textarea>
-                    <input type="submit" value="Send Message" class="form-button">
-                </form>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-darker text-white py-8">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between">
-                <div>
-                    <ul class="space-y-2 list-reset">
-                        <li><a href="https://github.com/username" target="_blank" class="align-middle hover:text-white">GitHub</a></li>
-                        <li><a href="https://linkedin.com/in/username" target="_blank" class="align-middle hover:text-white">LinkedIn</a></li>
-                        <li class="mt-2"><i class="fas fa-envelope"></i> username@example.com</li>
-                    </ul>
-                </div>
-                <div>
-                    <i class="fab fa-github-square text-3xl text-white mr-3"></i>
-                    <i class="fab fa-linkedin-in text-3xl text-white mr-3"></i>
-                    <i class="fas fa-envelope text-3xl text-white"></i>
-                </div>
-            </div>
+
+    <footer class="container text-center p-4">
+        <div>
+            <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zM3 12s1 8 1 8 1-8 1-8-1-8-1-8-1 8 1-8 1-8 1 8z"/></svg></a>
+            <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M15.353 16.695h2.442a2 2 0 012.206-1.964l-5.579-5.571a2 2 0 011.442-2.45L16.147 8c.176-1.041 1.091-2.71 1.589-3.854.186-1.193-.922-2.544-1.59-3.853l5.578-5.608a2 2 0 012.206 1.919l5.519 5.521a2 2 0 01-1.442 2.458l-5.579 5.579a2 2 0 01-2.206-1.965z"/></svg></a>
+            <a href="#">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 1c5.31 0 9.54 4.23 12.85 10.75l6.3 5.988C18 20.87 12.19 18 12.19 18 10.19 18 8 14.28 7.81 14.28h.022c0 1.592 1.317 2.996 2.866 3.203l5.364 5.25C17.19 21.13 19 20.24 19 19.28 19 16.24 17.19 14 15.31 14h-.01C14.64 14 13 15.202 13 16.28C13 18.28 14.81 19.69 17.147 19.69 17.147 17.7 15.353 17.7 13.663 17.7V19.12a7.929 7.929 0 00-3.658 0L12 15.99V1z"/></svg></a>
         </div>
     </footer>
-    <button id="darkLightToggle" class="dark-light-toggle"><div class="dark-icon sunny"></div><div class="light-icon moon"></div></button>
-    <a href="#" id="backToTop" class="fixed bottom-3 right-3 p-3 bg-white border border-[#07fffb] rounded shadow-md z-20 hover:shadow-lg"><i class="fas fa-arrow-up"></i></a>
-    <script src="https://cdn.jsdelivr.net/npm/@headlessui/ui@2.0.0/dist/headlessui.min.js"></script>
-    <script>
-        // Dark mode toggle</script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggle = document.getElementById('darkLightToggle');
-            const darkMode = localStorage.getItem('darkMode');
 
-            if (darkMode === 'true') {
-                document.body.classList.add('dark-mode');
-                toggle.children[0].style.display = 'inline-block';
-                toggle.children[1].style.display = 'none';
-            }
-
-            toggle.addEventListener('click', () => {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                document.body.classList.toggle('dark-mode');
-                localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-                const icons = toggle.children;
-                icons[0].style.display = document.body.classList.contains('dark-mode') ? 'none' : 'inline-block';
-                icons[1].style.display = document.body.classList.contains('dark-mode') ? 'inline-block' : 'none';
-            });
-        });
-    </script>
     <script>
-        // Back to top</script>
-    <script>
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+        }
     </script>
 </body>
 </html>
