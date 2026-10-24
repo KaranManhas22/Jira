@@ -1,41 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-height, initial-scale=1.0">
-    <title>Karan Singh Manhas Portfolio</title>
-    <!-- Tailwind CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Premium Developer Portfolio Website for Karan Singh Manhas - Cloud & DevOps Engineer, Android Developer" />
+    <meta name="author" content="Karan Singh Manhas" />
+    <title>Karan Singh Manhas | Cloud & DevOps Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/tailwindcss@2.2.20/dist/tailwind.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary: #0f0c29;
+            --secondary: #11183a;
+            --accent: #07fffb;
+            --dark: #1e1e2f;
+            --light: #f8f9fa;
+            --text-light: #f3f4f6;
+            --card-bg: #25283a;
+            --card-border: rgba(255, 255, 255, 0.1);
+            --transition-speed: 0.3s;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-light);
+            background: var(--primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--primary);
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        .hero {
+            background: linear-gradient(45deg, #0f0c29, #11183a);
+            padding: 8rem 2rem;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1507347326440-47ae32d89730?ixlib=rb-1.2.1&w=864h1000&q=80') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        .hero h2, .hero p {
+            position: relative;
+            z-index: 1;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+        }
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all var(--transition-speed) ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all var(--transition-speed) ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-tag {
+            background: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            color: var(--card-bg);
+            font-size: 0.8rem;
+            margin: 1rem 0 1rem 1rem;
+        }
+        footer {
+            background: var(--secondary);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+        .form-input, .form-textarea {
+            padding: 1rem;
+            border-radius: 10px;
+            border: none;
+            background: var(--card-bg);
+            color: var(--text-light);
+        }
+        .form-button {
+            background: var(--accent);
+            color: var(--card-bg);
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .form-button:hover {
+            transform: scale(1.05);
+        }
+        .dark-light-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            z-index: 1000;
+        }
+        .dark-light-toggle .dark-icon {
+            display: none;
+        }
+        .dark-light-toggle .light-icon {
+            display: inline-block;
+        }
+        body.dark-mode {
+            --primary: #0f0c29;
+            --secondary: #11183a;
+            --accent: #07fffb;
+            --dark: #1e1e2f;
+            --light: #f8f9fa;
+            --text-light: #f3f4f6;
+            --card-bg: #25283a;
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+        .dark-light-toggle .dark-icon.sunny,
+        .dark-light-toggle .light-icon.moon {
+            display: none;
+        }
+        body.dark-mode .dark-icon.sunny {
+            display: inline-block;
+        }
+        body.dark-mode .light-icon.moon {
+            display: inline-block;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-r from-indigo-500 to-purple-600 h-screen flex flex-col justify-center items-center text-center">
-    <div class="container 3d-box shadow-lg transition-opacity animate-pulse @keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }" style="animation: spin 5s linear infinite; animation-delay: 1s;">
-        <div class="flex items-center justify-center h-screen">
-</div>
-        <section class="flex flex-col items-center justify-center max-w-4xl mx-auto">
-            <img src="https://source.unsplash.com/random/300x200/?professional" alt="Karan Singh Manhas" class="rounded-lg shadow-lg max-w-2xl mb-10 object-cover">
-            <h1 class="text-4xl font-bold text-white mb-8">Karan Singh Manhas</h1>
-            <p class="text-white text-lg mb-10 pb-20 border-b-4 border-gradient from-purple-600 to-indigo-500">Personal Portfolio Website</p>
-            <div class="flex flex-wrap gap-4 mb-10">
-                <a href="#" class="p-2 rounded-lg bg-gradient-to-r from-indigo-500 to-orange-600 text-white hover:shadow-lg">Web Design</a>
-                <a href="#" class="p-2 rounded-lg bg-gradient-to-r from-red-500 to-pink-600 text-white hover:shadow-lg">Development</a>
-                <a href="#" class="p-2 rounded-lg bg-gradient-to-r from-green-500 to-teal-600 text-white hover:shadow-lg">Marketing</a>
+<body>
+    <header>
+        <h1>Karan Singh Manhas</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="hover:text-white">About</a></li>
+                <li><a href="#projects" class="hover:text-white">Projects</a></li>
+                <li><a href="#contact" class="hover:text-white">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white leading-tight mt-4 mb-3">Cloud & DevOps Engineer | Android Developer</h2>
+            <p class="text-2xl text-white leading-normal mb-8">
+                Building scalable applications, automating deployments, and creating modern digital solutions through innovative technologies and workflows.
+            </p>
+            <div class="flex flex-col space-y-3">
+                <a href="#projects" class="bg-[#07fffb] text-[#1e1e2f] font-semibold py-2 px-4 border border-[#1e1e2f] rounded shadow-md hover:shadow-lg rounded-lg focus:outline-none focus:ring-0 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-[#07fffb]">Explore My Work</a>
+                <a href="#contact" class="bg-[#07fffb] text-[#1e1e2f] font-semibold py-2 px-4 border border-[#1e1e2f] rounded shadow-md hover:shadow-lg rounded-lg focus:outline-none focus:ring-0 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-[#07fffb]">Contact Me</a>
             </div>
-            <div class="flex justify-center">
-                <a href="#" target="_blank" class="p-3 rounded-lg text-white hover:shadow-lg mx-2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="animate-pulse">
-                        <path d="M12 0L2 12l10 12l1 1 1-11L13 2z"></path>
-                    </svg>
-                    LinkedIn</a>
-                <a href="#" target="_blank" class="p-3 rounded-lg text-white hover:shadow-lg mx-2">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="animate-pulse">
-                        <path d="M4 6h16M4 16h16m-7 0h7"></path>
-                    </svg>
-                    Email</a>
+        </div>
+        <div class="fixed bottom-3 right-10–2rem p-4 bg-white border border-[#07fffb] rounded shadow-md z-20">
+            <a href="https://github.com/username" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/username" target="_blank"><i class="fab fa-linkedin" style="color: #0077B5"></i></a>
+            <a href="mailto:username@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+    <section id="about" class="py-16 bg-darker">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">About Me</h2>
+            <p class="text-lg text-white mb-8 mb-sm-10 mb-lg-12">
+                Computer Science Engineering graduate with extensive experience in Android Development (Kotlin, Android Studio), Cloud Computing (AWS, Azure), DevOps (CI/CD Pipelines, Docker/Kubernetes), and Full-Stack Development (React, Node.js, REST APIs). Passionate about automation, scalability, and solving complex technical problems through clean, efficient code.
+            </p>
+            <div class="max-w-xs mb-8 mb-sm-10 mb-lg-12">
+                <div class="mb-4 mb-sm-6 mb-lg-8 inline-block"><i class="fas fa-code text-2xl text-white mr-3"></i>
+                    <p class="text-white-lg">
+                        <strong>Projects Completed:</strong> Configurable dynamic count
+                    </p></div>
+                <div class="mb-4 mb-sm-6 mb-lg-8 inline-block"><i class="fas fa-graduation-cap text-2xl text-white mr-3"></i>
+                    <p class="text-white-lg">
+                        <strong>Technologies Learned:</strong> Configurable dynamic list
+                    </p></div>
+                <div class="mb-4 mb-sm-6 mb-lg-8 inline-block"><i class="fas fa-trophy text-2xl text-white mr-3"></i>
+                    <p class="text-white-lg">
+                        <strong>Certifications Earned:</strong> Configurable dynamic list
+                    </p></div>
             </div>
-            <footer class="mt-10 color-white text-sm">
-                <p>&copy;</p>
-            </footer>
-        </section>
-    </div>
+        </div>
+    </section>
+    <section id="projects" class="py-16 bg-darker">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">Featured Projects</h2>
+            <div class="project-grid grid-cols-sm-2 grid-cols-lg-3 gap-6">
+                <div class="project-card border-[#07fffb]">
+                    <h3 class="text-xl font-medium text-white mb-2">Market Minder</h3>
+                    <p class="text-white">
+                        Android inventory tracking application with real-time bill generation.
+                    </p>
+                    <div class="mt-3 flex space-x-2">
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Kotlin</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Android Studio</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">MySQL</span>
+                    </div>
+                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
+                </div>
+                <div class="project-card border-[#07fffb]">
+                    <h3 class="text-xl font-medium text-white mb-2">Medicine Recommender</h3>
+                    <p class="text-white">
+                        ML-powered web application for medicine suggestions based on symptoms.
+                    </p>
+                    <div class="mt-3 flex space-x-2">
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Python</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Flask</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Scikit-learn</span>
+                    </div>
+                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
+                </div>
+                <div class="project-card border-[#07fffb]">
+                    <h3 class="text-xl font-medium text-white mb-2">DevOps Pipeline</h3>
+                    <p class="text-white">
+                        CI/CD automation system with Docker containers and Azure deployment.
+                    </p>
+                    <div class="mt-3 flex space-x-2">
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Docker</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Kubernetes</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">GitHub Actions</span>
+                    </div>
+                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
+                </div>
+                <div class="project-card border-[#07fffb]">
+                    <h3 class="text-xl font-medium text-white mb-2">Voice Assistant</h3>
+                    <p class="text-white">
+                        Android voice integration demo with custom assistant features.
+                    </p>
+                    <div class="mt-3 flex space-x-2">
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Kotlin</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Python</span>
+                        <span class="project-tag bg-[#07fffb] text-[#1e1e2f] rounded">Firebase</span>
+                    </div>
+                    <a href="" class="mt-4 block bg-[#07fffb] text-[#1e1e2f] px-4 py-2 text-sm font-medium rounded mb-3 hover:bg-[#0b1ba9]}">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="py-16 bg-darker">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3 class="text-xl font-medium text-white mb-4">Programming</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>C/C++</li>
+                        <li>Kotlin</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3 class="text-xl font-medium text-white mb-4">Frontend</h3>
+                    <ul>
+                        <li>HTML/CSS</li>
+                        <li>React</li>
+                        <li>Angular</li>
+                        <li>Vite.js</li>
+                        <li>Tailwind CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3 class="text-xl font-medium text-white mb-4">Backend</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>Flask</li>
+                        <li>REST APIs</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3 class="text-xl font-medium text-white mb-4">Mobile Dev</h3>
+                    <ul>
+                        <li>Android Studio</li>
+                        <li>Kotlin</li>
+                        <li>XML</li>
+                        <li>Firebase</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3 class="text-xl font-medium text-white mb-4">Cloud & DevOps</h3>
+                    <ul>
+                        <li>AWS</li>
+                        <li>Microsoft Azure</li>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Jenkins</li>
+                        <li>Terraform</li>
+                        <li>Ansible</li>
+                        <li>Helm</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3 class="text-xl font-medium text-white mb-4">Monitoring</h3>
+                    <ul>
+                        <li>Prometheus</li>
+                        <li>Grafana</li>
+                        <li>Loki</li>
+                        <li>Nginx</li>
+                        <li>Git</li>
+                        <li>Linux</li>
+                        <li>n8n</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3 class="text-xl font-medium text-white mb-4">Databases</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>Firebase Firestore</li>
+                        <li>Room Database</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-16 bg-darker">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-6 mb-sm-8 mb-lg-10">Contact</h2>
+            <div class="max-w-sm mx-auto mb-8">
+                <form class="contact-form space-y-4">
+                    <input type="text" placeholder="Full Name" class="form-input w-full" required>
+                    <input type="email" placeholder="Email Address" class="form-input w-full" required>
+                    <textarea rows="5" placeholder="Your Message" class="form-textarea w-full"></textarea>
+                    <input type="submit" value="Send Message" class="form-button">
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-darker text-white py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between">
+                <div>
+                    <ul class="space-y-2 list-reset">
+                        <li><a href="https://github.com/username" target="_blank" class="align-middle hover:text-white">GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/username" target="_blank" class="align-middle hover:text-white">LinkedIn</a></li>
+                        <li class="mt-2"><i class="fas fa-envelope"></i> username@example.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <i class="fab fa-github-square text-3xl text-white mr-3"></i>
+                    <i class="fab fa-linkedin-in text-3xl text-white mr-3"></i>
+                    <i class="fas fa-envelope text-3xl text-white"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button id="darkLightToggle" class="dark-light-toggle"><div class="dark-icon sunny"></div><div class="light-icon moon"></div></button>
+    <a href="#" id="backToTop" class="fixed bottom-3 right-3 p-3 bg-white border border-[#07fffb] rounded shadow-md z-20 hover:shadow-lg"><i class="fas fa-arrow-up"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/@headlessui/ui@2.0.0/dist/headlessui.min.js"></script>
+    <script>
+        // Dark mode toggle</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('darkLightToggle');
+            const darkMode = localStorage.getItem('darkMode');
+
+            if (darkMode === 'true') {
+                document.body.classList.add('dark-mode');
+                toggle.children[0].style.display = 'inline-block';
+                toggle.children[1].style.display = 'none';
+            }
+
+            toggle.addEventListener('click', () => {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+                const icons = toggle.children;
+                icons[0].style.display = document.body.classList.contains('dark-mode') ? 'none' : 'inline-block';
+                icons[1].style.display = document.body.classList.contains('dark-mode') ? 'inline-block' : 'none';
+            });
+        });
+    </script>
+    <script>
+        // Back to top</script>
+    <script>
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
