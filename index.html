@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Student Account</title>
+    <title>Jira Ticket Summary: Sign in with role-based access</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 p-8 md:max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold mb-4 text-indigo-600">Register Student</h1>
-    <form class="mt-4 space-y-6">
-        <div>
-            <label class="block mb-2 text-sm font-medium text-gray-700" for="name">Full Name</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                class="block w-full px-4 py-2 border rounded-md border-gray-300</textarea>
+<body class="bg-gray-100 text-gray-900 p-4">
+    <h1 class="text-3xl font-bold mb-4">Jira Ticket Summary: Sign in with role-based access</h1>
+    <div class="flex flex-col items-center">
+        <div class="bg-white p-4 rounded-xl shadow-md mb-4">
+            <p>This Jira ticket modifies a GitHub file to implement role-based access signing. The change adds a responsive login form with conditional UI elements and updates the header with user-specific authentication links based on role.</p>
         </div>
-        <div></div></form>
-    <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('Form submitted:', new FormData(this).serialize());
-        });
-    </script>
+        <div class="flex flex-col items-center">
+            <div class="bg-violett-500 text-white p-3 rounded bg-opacity-70 hover:bg-opacity-80">
+                <span class="flex text-xs font-bold mb-2">Security Update</span>
+                <div class="border-b-2 border-translucent mt-2 text-SM">Automated deployment: Git commit executed</div>
+            </div>
+            <div class="bg-indigo-500 text-white p-3 rounded bg-opacity-70 hover:bg-opacity-80">
+                <span class="flex text-xs font-bold mb-2">Deployment Status</span>
+                <div class="border-b-2 border-translucent mt-2 text-SM">Jenkins pipeline triggered</div>
+            </div>
+        </div>
+    </div>
 </body>
-</html>   
+</html>
