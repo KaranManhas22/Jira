@@ -3,25 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jira Ticket Summary: Sign in with role-based access</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>College Library Management System</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-900 p-4">
-    <h1 class="text-3xl font-bold mb-4">Jira Ticket Summary: Sign in with role-based access</h1>
-    <div class="flex flex-col items-center">
-        <div class="bg-white p-4 rounded-xl shadow-md mb-4">
-            <p>This Jira ticket modifies a GitHub file to implement role-based access signing. The change adds a responsive login form with conditional UI elements and updates the header with user-specific authentication links based on role.</p>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">
+            College Library - Book Records
+        </h1>
+
+        <div class="mb-12">
+            <input type="text" id="title" placeholder="Book Title" required
+                   class="px-4 py-2 border rounded-md" aria-label="Book Title">
+            <input type="text" id="author" placeholder="Author Name" required
+                   class="px-4 py-2 border rounded-md mb-4" aria-label="Author Name">
+            <input type="text" id="isbn" placeholder="ISBN" required
+                   class="px-4 py-2 border rounded-md mb-6" aria-label="ISBN">
+            <button onclick="addBook()" class="bg-blue-500 text-white px-6 py-3 rounded-lg mb-8">
+                Add Book
+            </button>
         </div>
-        <div class="flex flex-col items-center">
-            <div class="bg-violett-500 text-white p-3 rounded bg-opacity-70 hover:bg-opacity-80">
-                <span class="flex text-xs font-bold mb-2">Security Update</span>
-                <div class="border-b-2 border-translucent mt-2 text-SM">Automated deployment: Git commit executed</div>
-            </div>
-            <div class="bg-indigo-500 text-white p-3 rounded bg-opacity-70 hover:bg-opacity-80">
-                <span class="flex text-xs font-bold mb-2">Deployment Status</span>
-                <div class="border-b-2 border-translucent mt-2 text-SM">Jenkins pipeline triggered</div>
-            </div>
-        </div>
+
+        <table class="w-full border border-gray-400 shadow-sm mb-8">
+            <thead class="bg-blue-500 text-white">
+                <tr>
+                    <th class="px-4 py-2 rounded-lg">Title</th>
+                    <th class="px-4 py-2 rounded-lg">Author</th>
+                    <th class="px-4 py-2 rounded-lg">ISBN</th>
+                </tr>
+            </thead>
+            <tbody id="bookTable">
+                <!-- Books will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <script>
+            const books = [];
+
+            function addBook() {
+                const title = document.getElementById('title').value.trim();
+                const author = document.getElementById('author').value.trim();
+                const isbn = document.getElementById('isbn').value.trim();
+
+                // Basic validation
+                if (title && author && isbn && isbn.length === 13) {
+                    books.push({ title, author, isbn });
+                    renderBooks();
+                    // Clear form
+                    document.getElementById('title').value = '';
+                    document.getElementById('author').value = '';
+                    document.getElementById('isbn').value = '';
+                }
+            }
+
+            function renderBooks() {
+                const tbody = document.getElementById('bookTable');
+                tbody.innerHTML = '';
+                books.forEach((book, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="px-4 py-2">${book.title}</td>
+                        <td class="px-4 py-2">${book.author}</td>
+                        <td class="px-4 py-2">${book.isbn}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            // Initial render
+            renderBooks();
+        </script>
     </div>
 </body>
 </html>
