@@ -1,17 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Issue a Book to a Student</title>
-    <!-- Critical assets: add required CDN/script tags here -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Loans & Due Dates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .loan-section {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        td:nth-of-type(3) {
+            color: green;
+        }
+        td:nth-of-type(4) {
+            color: #e74c3c;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .btn:hover{
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <!-- Critical: Add functional book issuance logic and student interface here -->
-    <h1>Book Issuance System</h1>
-    <form action="issue_book.html">
-        <input type="text" placeholder="Student ID">
-        <input type="text" placeholder="Book ID">
-        <button type="submit">Submit</button>
-    </form>
+    <h1>My Loans & Due Dates</h1>
+    <div class="loan-section">
+        <h2>List of Loans</h2>
+        <table>
+            <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Due Date</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>Advanced HTML5</td>
+                <td>John Doe</td>
+                <td>2026-11-15</td>
+                <td>[Overdue]</td>
+                <td><button class="btn">Renew Loan</button></button></td>
+            </tr>
+            <tr>
+                <td>The Art of Programming</td>
+                <td>Jane Smith</td>
+                <td>2026-12-01</td>
+                <td>[Normal]</td>
+                <td><button class="btn">View Details</button></button></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
